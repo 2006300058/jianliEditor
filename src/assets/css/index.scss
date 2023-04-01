@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'UbuntuMono-R-Powerline';
+  src: url('../fonts/UbuntuMono-R-Powerline.otf');
+}
+
+@font-face {
+  font-family: 'AaLingGanHei55J-2';
+  src: url('../fonts/AaLingGanHei55J-2.ttf');
+}
+
+body {
+  margin: 0;
+  font-family: 'UbuntuMono-R-Powerline', 'AaLingGanHei55J-2';
+  -webkit-font-smoothing: antialiased; //用于在WebKit（Chrome和Safari等浏览器内核）下，针对WebKit字体的平滑处理，即反锯齿处理，让字体边缘更加平滑，看起来更加清晰。
+  -moz-osx-font-smoothing: grayscale; //用于在Mac OS X（Firefox等浏览器内核）下，针对字体的平滑处理，也是反锯齿处理，将字体变成灰度，看起来更加清晰。
+}
+
+img {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

@@ -1,0 +1,55 @@
+.index {
+    min-width: 1200px;
+    background: rgba($color: #001100, $alpha: 0.06);
+
+    header {
+        height: 800px;
+        position: relative;
+        overflow: hidden;
+
+        img {
+           // background-repeat: repeat-y;
+            object-fit: cover;
+            opacity: 90%;
+        }
+
+        .content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            background: rgba($color: #001100, $alpha: 0.06);
+
+            .title {
+                font-size: 72px;
+            }
+
+            .actions {
+                padding-top: 24px;
+                display: flex;
+                gap: 16px;
+                .action {
+                    padding: 24px 50px;
+                    font-size: 18px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .icon {
+                        margin-left: 8px;
+                    }
+                }
+                .github {
+                    background: transparent;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

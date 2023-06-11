@@ -1,0 +1,15 @@
+
+
+
+
+export const EditorPage = () => {
+
+
+
+
+    return (
+        <>
+        </>
+    )
+   
+}

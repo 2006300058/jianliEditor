@@ -5,7 +5,7 @@ import {Icon} from 'src/components/icon'
 import { TemplateCard } from 'src/components/templateCard'
 import { toEditor } from "../editor/route"
 import {appStore} from 'src/stores/app'
-import { templates } from 'src/templates'
+//import { templates } from 'src/templates'
 import styles from './index.module.scss'
 
 export const IndexPage = () => {
@@ -35,11 +35,6 @@ export const IndexPage = () => {
             <main>
                 <div className={styles.title}>简历模板</div>
                 <div className={styles.templates}>
-                    {
-                        templates.map(() => {
-
-                        })
-                    }
                 </div>
             </main>
         </div>

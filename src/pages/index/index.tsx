@@ -17,17 +17,17 @@ export const IndexPage = () => {
             <header>
                 <img src={headBg} alt="" />
                 <div className={styles.content}>
-                    <div className={styles.title}>简历编辑
+                    <div className={styles.title}>简历编辑工具
                     </div>
                     <div className={styles.actions}>
                         <Button type="primary" className={styles.action} >
                             <Icon className={styles.icon} value="file-code-line"/>
                             导入配置
                         </Button>
-                        <Button type="primary" className={clsx(styles.action, styles.github)}>
+                        {/* <Button type="primary" className={clsx(styles.action, styles.github)}>
                             <Icon className={styles.icon} value="github-fill"/>
                             Github
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>    
             </header>

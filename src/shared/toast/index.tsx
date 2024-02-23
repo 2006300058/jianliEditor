@@ -1,5 +1,5 @@
 import {message,Modal} from 'antd';
-
+// 展示提醒信息
 export function showSuccess(text: string) {
     message.success({
         content: text,

@@ -41,7 +41,7 @@ const DEFAULT_CONFIG = {
             visible: true
         }
     ],
-   // backgroundImage: backgroundImages[0],
+    backgroundImage: backgroundImages[0],
     githubVisible: true
 }
 

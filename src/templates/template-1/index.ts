@@ -16,7 +16,9 @@ import poster from './assets/poster.jpeg'
 
 export const backgroundImages = [bg1, bg2, bg3, bg4, bg5];
 
+const View = React.lazy(() => import('./view'))
 
+const ConfigForm = React.lazy(() => import('./configForm'));
 
 const DEFAULT_CONFIG = {
     modules : [
@@ -53,7 +55,7 @@ export class DeveloperConcise1Template extends FormilyTemplate<IDeveloperData, t
     dataForm = DeveloperModel.form;
     defaultData = DeveloperModel.Default_Data;
     defaultConfig = DEFAULT_CONFIG
-
+    configForm: ConfigForm;
      moveModule = ( index: number, targetIndex: number) => {
         if(targetIndex < 0) return;
         let temp = this.config.modules[targetIndex]

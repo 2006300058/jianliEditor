@@ -10,8 +10,8 @@ import { TitleStyle4 } from './view/title/styles/style4';
 import { TitleStyle5 } from './view/title/styles/style5';
 import { TitleStyle6 } from './view/title/styles/style6';
 
-const View = React.lazy(() => import('./view'));
-const ConfigForm = React.lazy(() => import('./configForm'));
+const View = React.lazy(() => import('./view'))
+const ConfigForm = React.lazy(() => import('./configForm'))
 
 export const titles = [
     {
@@ -79,7 +79,7 @@ export class DeveloperConcise2Template extends FormilyTemplate<IDeveloperData, t
     defaultData = DeveloperModel.Default_Data;
     defaultConfig = DEFAULT_CONFIG;
 
-    moveModule = (index: number, targetIndex: number) {
+    moveModule = (index: number, targetIndex: number) => {
         if(targetIndex < 0) return;
         let temp  = this.config.modules[targetIndex]
         this.config.modules[targetIndex] = this.config.modules[index]
@@ -93,6 +93,6 @@ export class DeveloperConcise2Template extends FormilyTemplate<IDeveloperData, t
         })
     }
     get titleComponent() {
-        return titles.find((item) => item.name === this.config.titleStyle)?.component
+        return titles.find((item) => item.name === this.config.titleStyle)!.component
     }
 }

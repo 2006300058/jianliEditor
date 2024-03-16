@@ -6,7 +6,7 @@ import styles from './index.module.scss'
 export const OwnerProjects = () => {
     const { data, config } = useTemplate<DeveloperConcise2Template>()
 
-    return useObserver(() => {
+    return useObserver(() => (
         <div className={styles.index}>
             {data.projects.map((item, index) => {
                 return (
@@ -34,5 +34,5 @@ export const OwnerProjects = () => {
                 )
             }
         </div>
-    })
+    ))
 }

@@ -5,23 +5,93 @@ import { ColorSelect } from 'src/components/colorSelect';
 import { Icon } from 'src/components/icon';
 import { useTemplate } from 'src/templates/template';
 import styles from './index.mudule.scss';
-import { DeveloperConcise2Template } from '..';
+import { DeveloperConcise2Template, titles } from '..';
 
-export const Header = () => {
-    const {data} = useTemplate<DeveloperConcise2Template>()
+const ConfigForm = () => {
+    const { config, moveModule } = useTemplate<DeveloperConcise2Template>()
 
-    return useObserver(() => {
+    return useObserver(() => (
         <div className={styles.index}>
-            <div className={styles.content}>
-                <div className={styles.name}>{data.name}</div>
-                <div className={styles.des}>
-                    <span>
-                    {[data.age, data.gender, data.city, data.target, data.phoneNumber, data.email].filter(Boolean).join(' ∕ ')}
-                    </span>
-                    <br/>
-                    <span>{`${data.education.gradurationTime} 年毕业于 ${data.education.schoolName} - ${data.education.major}`}</span>
-                </div>
+            <h3>模块</h3>
+            <div className={styles.modules}>
+                {
+                    config.modules.map((item, index) => {
+                        return (
+                            <div key={item.key} className={styles.item}>
+                                <Input
+                                    style={{ width: 300 }}
+                                    bordered={false}
+                                    value={item.name}
+                                    onChange={(e) => (item.name = e.target.value)}
+                                />
+                                <Space>
+                                    <Switch
+                                        checkedChildren="显示"
+                                        unCheckedChildren="隐藏"
+                                    />
+                                    <Button
+                                        shape='circle'
+                                        onClick={() => moveModule(index, index - 1)}
+                                        icon={<Icon value='arrow-up-line' />}>
+
+                                    </Button>
+                                </Space>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+
+            <h3>主色调</h3>
+            <Input value={config.primaryColor} onChange={(e) => (config.primaryColor = e.target.value)}/>
+            <ColorSelect onSelect={(color) => (config.primaryColor = color.value)}/>
+
+            <h3>Github</h3>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                }}
+            >
+                 是否要显示 Github 地址？
+                 <Switch
+                    checkedChildren='显示'
+                    unCheckedChildren='隐藏'
+                    checked={config.githubvisible}
+                    onChange={(val) => (config.githubvisible = val)}
+                 />
+            </div>
+
+            <h3>标题样式</h3>
+
+            <div style={
+                {
+                    '--color-primary': config.primaryColor,
+                } as any
+            }>
+                {
+                    titles.map((item) => {
+                        return (
+                            <div>
+                                <Radio.Group value={config.titleStyle} onChange={(e) => (config.titleStyle = e.target.value)}>
+                                    <Radio value={item.name}>
+                                        <div style={{padding: '6px 0', width: 300}}>
+                                            {
+                                                React.createElement(item.component, {
+                                                    value: '标题样式',
+                                                } as any)
+                                            }
+                                        </div>
+                                    </Radio>
+                                </Radio.Group>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
-    })
+    ))
 }
+
+export default ConfigForm

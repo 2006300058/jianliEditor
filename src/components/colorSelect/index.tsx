@@ -7,7 +7,7 @@ interface Color {
 }
 
 interface ColorSelectProps {
-    colors: Color[],
+    colors?: Color[],
     onSelect: (color: Color, index: number) => void
 }
 

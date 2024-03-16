@@ -41,3 +41,10 @@ const Default_Data = {
         },
     ]
 }
+
+export type INormalSidevarData = typeof Default_Data
+
+export const NormalSidebarModel = {
+    defaultData: Default_Data,
+    form: DataForm
+}

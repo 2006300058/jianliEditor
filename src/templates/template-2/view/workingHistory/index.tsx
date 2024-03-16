@@ -6,7 +6,7 @@ import styles from './index.module.scss'
 
 export const WorkingHistory = () => {
     const {data} = useTemplate<DeveloperConcise2Template>()
-    return useObserver(() => {
+    return useObserver(() => (
         <div className={styles.index}>
             {data.workingHistory.map((item, index) => {
                 return (
@@ -16,5 +16,5 @@ export const WorkingHistory = () => {
                 )
             })}
         </div>
-    })
+    ))
 }

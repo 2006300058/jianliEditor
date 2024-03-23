@@ -1,22 +1,14 @@
-import 'antd/dist/antd.variable.min.css'
-import { configure } from 'mobx'
-import { ManagerProvider } from 'oh-popup-react'
-import 'oh-popup-react/dist/style.css'
-import { RouterView } from 'oh-router-react'
-import { createRoot } from 'react-dom/client'
-import 'src/assets/css/index.scss'
-import 'src/assets/css/var.css'
-import { router } from 'src/router'
-import { popupManager } from 'src/shared/popupManager'
+import { Template3 } from "./template-3"
+import { Template4 } from "./template-4"
+import { DeveloperConcise1Template } from "./template-1"
+import { DeveloperConcise2Template } from "./template-2"
+import { BaseTemplate } from "./template"
 
-// 配置 MobX，禁用严格模式
-configure({enforceActions: 'never'})
+export {TemplateProvider, useTemplate} from './template'
 
-const root = createRoot(document.getElementById('root')!)
-
-root.render(
-    <>
-        <RouterView router={router}/>
-        <ManagerProvider manager={popupManager}/>
-    </>
-)
+export const templates: BaseTemplate[] = [
+    new DeveloperConcise1Template(),
+    new DeveloperConcise2Template(),
+    new Template3(),
+    new Template4()
+]
